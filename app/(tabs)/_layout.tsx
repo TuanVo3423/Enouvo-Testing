@@ -1,37 +1,50 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Stack } from "expo-router";
+import React from "react";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          title: "Home",
         }}
       />
-      <Tabs.Screen
-        name="explore"
+      <Stack.Screen
+        name="create"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
+          title: "Approval Matrix",
+          headerShown: true,
+          headerBackVisible: true,
+          headerStyle: {
+            backgroundColor: "#eb951b",
+          },
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            color: "white",
+            fontSize: 22,
+          },
+          headerTintColor: "white",
         }}
       />
-    </Tabs>
+
+      <Stack.Screen
+        name="update"
+        options={{
+          title: "Approval Matrix",
+          headerShown: true,
+          headerBackVisible: true,
+          headerStyle: {
+            backgroundColor: "#eb951b",
+          },
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            color: "white",
+            fontSize: 22,
+          },
+          headerTintColor: "white",
+        }}
+      />
+    </Stack>
   );
 }
