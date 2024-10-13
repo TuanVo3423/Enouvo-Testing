@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   textHeader: {
     fontSize: 20,
     fontWeight: "700",
-    color: "orange",
+    color: "#eb951b",
     margin: "auto",
   },
   form1: {

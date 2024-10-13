@@ -1,13 +1,7 @@
 import { ApprovalMatrixType } from "@/interface/common";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useMemo, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export interface CollapsibleInputProps {
   feature?: ApprovalMatrixType;
@@ -88,7 +82,8 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     borderColor: "gray",
-    padding: 16,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
     backgroundColor: "white",
   },
   popupContainer: {

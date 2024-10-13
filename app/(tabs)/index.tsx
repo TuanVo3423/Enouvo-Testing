@@ -47,67 +47,79 @@ export default function HomeScreen() {
             removeTypes={removeTypes}
             title={ApprovalMatrixType.TransferOnline}
           />
-          <ScrollView>
-            <View style={{ flexDirection: "column", gap: 10 }}>
-              {matrixes
-                .filter((matrix) =>
-                  types.includes(matrix.feature as ApprovalMatrixType)
-                )
-                .sort(
-                  (a, b) =>
-                    (a.number_of_approval as number) -
-                    (b.number_of_approval as number)
-                )
-                .map((matrix) => (
-                  <TouchableOpacity
-                    onPress={() =>
-                      router.push({
-                        pathname: `/update`,
-                        params: { ...matrix },
-                      })
-                    }
-                    style={styles.item}
-                    key={matrix.id}
-                  >
-                    <View style={styles.itemWrapper}>
-                      <View>
-                        <Text style={{ fontSize: 12 }}>
-                          Range Limit of Approval
-                        </Text>
-                      </View>
-                      <View style={{ flexDirection: "column" }}>
-                        <Text style={styles.textLabel}>Minimum IDR</Text>
-                        <Text style={styles.textLabel}>Maximum IDR</Text>
-                      </View>
-                      <View>
-                        <Text style={styles.textLabel}>{matrix.minimum}</Text>
-                        <Text style={styles.textLabel}>{matrix.maximum}</Text>
-                      </View>
-                    </View>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        paddingVertical: 10,
-                      }}
+          <View style={{ marginTop: -10 }}>
+            <ScrollView>
+              <View style={{ flexDirection: "column", gap: 10 }}>
+                {matrixes
+                  .filter((matrix) =>
+                    types.includes(matrix.feature as ApprovalMatrixType)
+                  )
+                  .sort(
+                    (a, b) =>
+                      (a.number_of_approval as number) -
+                      (b.number_of_approval as number)
+                  )
+                  .map((matrix) => (
+                    <TouchableOpacity
+                      onPress={() =>
+                        router.push({
+                          pathname: `/update`,
+                          params: { ...matrix },
+                        })
+                      }
+                      style={styles.item}
+                      key={matrix.id}
                     >
-                      <View style={{ flexDirection: "row", width: "100%" }}>
-                        <Text style={{ fontSize: 12 }}>Number of Approval</Text>
-                        <Text
-                          style={{
-                            fontSize: 12,
-                            marginLeft: "auto",
-                            color: "#22268f",
-                          }}
-                        >
-                          {matrix.number_of_approval}
-                        </Text>
+                      <View style={styles.itemWrapper}>
+                        <View>
+                          <Text style={{ fontSize: 12 }}>
+                            Range Limit of Approval
+                          </Text>
+                        </View>
+                        <View style={{ flexDirection: "column" }}>
+                          <Text style={styles.textLabel}>Minimum IDR</Text>
+                          <Text style={styles.textLabel}>Maximum IDR</Text>
+                        </View>
+                        <View>
+                          <Text
+                            style={[styles.textLabel, { marginLeft: "auto" }]}
+                          >
+                            {matrix.minimum}
+                          </Text>
+                          <Text
+                            style={[styles.textLabel, { marginLeft: "auto" }]}
+                          >
+                            {matrix.maximum}
+                          </Text>
+                        </View>
                       </View>
-                    </View>
-                  </TouchableOpacity>
-                ))}
-            </View>
-          </ScrollView>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                          paddingVertical: 10,
+                        }}
+                      >
+                        <View style={{ flexDirection: "row", width: "100%" }}>
+                          <Text style={{ fontSize: 12 }}>
+                            Number of Approval
+                          </Text>
+                          <Text
+                            style={{
+                              fontSize: 12,
+                              marginLeft: "auto",
+                              color: "#22268f",
+                            }}
+                          >
+                            {matrix.number_of_approval}
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  ))}
+              </View>
+            </ScrollView>
+          </View>
         </View>
       </View>
     </SafeAreaView>
